@@ -1,0 +1,19 @@
+package com.breezy.helloWorldPrint;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class DisplayMessageActivity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+     // Create the text view
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText("download Breezy...");
+
+        setContentView(textView);        
+    }
+}

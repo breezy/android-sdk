@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="selectPrintItem">Select an item to print:</string>
+    <string name="app_name">HelloWorldPrint</string>
+    <string name="btnPrintText">Plain Text</string>
+    <string name="btnPrintHtml">HTML</string>
+    <string name="btnPrintFile">File</string>
+    <string name="btnPrintImage">Image</string>
+    <string name="btnSubmit">Print</string>
+</resources>

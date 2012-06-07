@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Select an item to print:</string>
+    <string name="app_name">HelloWorldPrint</string>
+
+</resources>

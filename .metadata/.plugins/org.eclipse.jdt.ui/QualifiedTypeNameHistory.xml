@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="android.net.Uri.Builder"/>
+<fullyQualifiedTypeName name="android.content.pm.PackageManager"/>
+<fullyQualifiedTypeName name="com.breezy.helloWorldPrint.R.raw"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.breezy.helloWorldPrint.R"/>
+<fullyQualifiedTypeName name="com.breezy.helloWorldPrint.R.id"/>
+</qualifiedTypeNameHistroy>

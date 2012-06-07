@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="BreezyTheme" parent="@android:Theme">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowBackground">@drawable/app_background</item>
+		<item name="android:buttonStyle">@style/BreezyButton</item>
+		<item name="android:textAppearance">@style/BaseText</item>
+	</style>
+
+	<style name="BreezyButton">
+		<item name="android:background">@drawable/portrait_button_states</item>
+		<item name="android:textColor">#d2eef9</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:textSize">16.00dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:gravity">center_vertical|center_horizontal</item>
+		<item name="android:height">40.00dp</item>
+		<item name="android:width">286.67dp</item>
+		<item name="android:scaleType">center</item>
+	</style>
+
+	<style name="BaseText" parent="@android:style/TextAppearance.Theme">
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:textSize">18.67dp</item>
+	</style>
+
+	<style name="BoldBaseText" parent="@style/BaseText">
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="ListText" parent="@style/BaseText">
+		<item name="android:textColor">#444444</item>
+		<item name="android:textSize">16.00dp</item>
+	</style>
+
+	<style name="HomeText" parent="@style/BaseText">
+		<item name="android:textSize">13.33dp</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+</resources>

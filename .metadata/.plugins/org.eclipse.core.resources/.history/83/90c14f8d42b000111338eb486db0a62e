@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selectPrintItem"
+            android:layout_marginBottom="30dp"
+            android:textAppearance="@style/BoldBaseText" />
+
+        <RadioGroup
+            android:id="@+id/radioButtonGroup1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp"
+            android:textAppearance="@style/BoldBaseText" >
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                style="@style/BoldBaseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPrintFile" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                style="@style/BoldBaseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPrintImage" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                style="@style/BoldBaseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPrintHtml" />
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                style="@style/BoldBaseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPrintText" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnSubmit" />
+    </LinearLayout>
+
+</RelativeLayout>
