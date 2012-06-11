@@ -56,7 +56,7 @@ public class BreezyIntent extends Intent {
 				PackageInfo pi = packageManager.getPackageInfo(p, 0);
 				int versionCode = pi.versionCode;
 
-				if (versionCode < 9)
+				if (versionCode < 10)
 					return false;
 				else
 					return true;
