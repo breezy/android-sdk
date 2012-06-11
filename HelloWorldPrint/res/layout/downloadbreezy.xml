@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="vertical"        
+        android:gravity="center_vertical|center_horizontal"
         android:layout_centerInParent="true" >
 
         <TextView
@@ -14,14 +15,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/BoldBaseText"
+           	android:gravity="center_vertical|center_horizontal"
             android:layout_marginBottom="30dp"
-            android:text="You don&apos;t have Breezy installed!" />
+            android:text="@string/downloadMessageText" />
 
         <Button
+			android:gravity="center_vertical|center_horizontal"            	    
             android:id="@+id/buttonDownloadBreezy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Download" />
+            android:text="@string/downloadButtonText" />
     </LinearLayout>
 
 </RelativeLayout>

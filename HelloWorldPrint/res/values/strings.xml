@@ -7,4 +7,6 @@
     <string name="btnPrintFile">File</string>
     <string name="btnPrintImage">Image</string>
     <string name="btnSubmit">Print</string>
+    <string name="downloadMessageText">Download or update to the latest Breezy (&lt; v1.2.4 not supported)</string>
+    <string name="downloadButtonText">Download</string>
 </resources>

@@ -5,13 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,12 +16,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+import com.breezy.android.sdk.BreezyIntent;
+
 public class HelloWorldPrintActivity extends Activity {
 
-	private final static String app = "com.breezy.android";
 	private final static String testPage = "testpage.pdf";
 	private final static String testImage = "breezy_splash.png";
-	private final static String action = Intent.ACTION_SEND;
+	
 
 	/** Called when the activity is first created. */
 	@Override
@@ -38,76 +36,54 @@ public class HelloWorldPrintActivity extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		Button b = (Button)this.findViewById(R.id.buttonPrint);
+
+		Button b = (Button) this.findViewById(R.id.buttonPrint);
 		b.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	submit(v);
-            }
-        });
+			public void onClick(View v) {
+				try {
+					submit(v);
+				} catch (NameNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
-	public void submit(View view) {
-		if (!isIntentAvailable(this)) {
+	public void submit(View view) throws NameNotFoundException {
+		if (!BreezyIntent.isIntentAvailable(this)) {
 			Intent intent = new Intent(this, DisplayMessageActivity.class);
 			this.startActivity(intent);
 			return;
 		}
 
-		Intent breezyIntent = new Intent();
-		breezyIntent.setPackage(app);
-		breezyIntent.setAction(action);
-
+		BreezyIntent breezyIntent = null;
+		
 		RadioGroup rbg = (RadioGroup) this.findViewById(R.id.radioButtonGroup1);
 		int i = rbg.getCheckedRadioButtonId();
 
-		String dir = this.getExternalFilesDir(getPackageName())
-				.getAbsolutePath();
+		String dir = this.getExternalFilesDir(getPackageName()).getAbsolutePath();
 
 		switch (i) {
 		case R.id.radioButton1:
-			breezyIntent.setType("text/plain");
-			breezyIntent.putExtra(Intent.EXTRA_TEXT,
-					"This could be the body of an email.");
+			breezyIntent = new BreezyIntent("This could be the body of an email.");
 			break;
 		case R.id.radioButton2:
-			breezyIntent.setType("text/html");
-			breezyIntent.putExtra(Intent.EXTRA_TEXT,
-					"<html>This is what <b>HTML</b> looks like.</html>");
+			breezyIntent = new BreezyIntent("<html>This is what <b>HTML</b> looks like.</html>", true);
 			break;
 		case R.id.radioButton3:
 			Uri uri = Uri.parse("file://" + dir + "/" + testPage);
-			breezyIntent.setType("application/pdf");
-			breezyIntent.putExtra(Intent.EXTRA_STREAM, uri);
+			breezyIntent = new BreezyIntent("application/pdf", uri);			
 			break;
 		case R.id.radioButton4:
-			uri = Uri.parse("file://" + dir + "/" + testImage);
 			// optionally pass a content Uri
 			// uri = Uri.parse("content://media/external/images/media/2");
-			breezyIntent.setType("image/png");
-			breezyIntent.putExtra(Intent.EXTRA_STREAM, uri);
+			uri = Uri.parse("file://" + dir + "/" + testImage);
+			breezyIntent = new BreezyIntent("image/png", uri);						
 			break;
 		}
 
 		startActivity(breezyIntent);
-	}
-
-	public static boolean isIntentAvailable(Context context) {
-		final PackageManager packageManager = context.getPackageManager();
-		final Intent intent = new Intent();
-		intent.setAction(action);
-		intent.setType("file/*");
-
-		List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
-				PackageManager.MATCH_DEFAULT_ONLY);
-
-		for (ResolveInfo resolveInfo : list) {
-			String p = resolveInfo.activityInfo.packageName;
-			if (p != null && p.startsWith(app))
-				return true;
-		}
-
-		return false;
 	}
 
 	private void loadResource(String fileName) throws IOException {
